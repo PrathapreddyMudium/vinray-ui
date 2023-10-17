@@ -1,8 +1,8 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
 import { useEffect, useState } from "react";
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
 import api from "../api/vinrays";
 
 const teamsData = [
@@ -88,12 +88,20 @@ const teamsData = [
   }
 ]
 
-function AppTeams() {
+const AppTeams = () => {
   const [teamsData1, setTeamData1] = useState([]);
+  const [imageUrl,setImageUrl] = useState(null);
   useEffect(() => {
     async function fetchDataFromAPI() {
-      const serviceData = await api.get("/team/1");
-      setTeamData1(serviceData.data);
+      const response = await api.get("/team/4");
+      const byteArray = new Uint8Array(response.data.image.content);
+      const blob = new Blob([byteArray], { type: 'image/jpeg' });
+      const imageUrl = URL.createObjectURL(blob);
+      //console.log(response.data.image.content);
+      //console.log(byteArray);
+      //console.log(blob);
+      setImageUrl(imageUrl);
+      setTeamData1(response.data);
     }
     fetchDataFromAPI();
   }, []);
