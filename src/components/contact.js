@@ -23,6 +23,14 @@ function AppContact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const contact = await api.post("/contact", formData);
+    setFormData({
+    name: "",
+    email: "",
+    contact: "",
+    message: "",
+    
+
+    })
     console.log(contact);
   }
   return (

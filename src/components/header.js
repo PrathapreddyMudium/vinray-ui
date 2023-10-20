@@ -6,7 +6,7 @@ function AppHeader() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home" className='brand'><i class="fas fa-snowflake fa-2x"></i> Vinrays</Navbar.Brand>
+        <Navbar.Brand href="#home" className='brand'><i class="fas fa-snowflake fa-2x" style={{color:"#35d0ba"}}></i> Vinrays</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
