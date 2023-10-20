@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -89,19 +89,12 @@ const teamsData = [
 ]
 
 const AppTeams = () => {
-  const [teamsData1, setTeamData1] = useState([]);
-  const [imageUrl,setImageUrl] = useState(null);
+  //const [teamsData1, setTeamData1] = useState([]);
   useEffect(() => {
     async function fetchDataFromAPI() {
-      const response = await api.get("/team/4");
-      const byteArray = new Uint8Array(response.data.image.content);
-      const blob = new Blob([byteArray], { type: 'image/jpeg' });
-      const imageUrl = URL.createObjectURL(blob);
-      //console.log(response.data.image.content);
-      //console.log(byteArray);
-      //console.log(blob);
-      setImageUrl(imageUrl);
-      setTeamData1(response.data);
+      const response = await api.get("/team/1");
+      //setTeamData1(response.data);      
+      console.log(response.data);
     }
     fetchDataFromAPI();
   }, []);
@@ -118,7 +111,7 @@ const AppTeams = () => {
               return (
                 <Col sm={3} key={teams.id}>
                   <div className='image'>
-                    <Image src={teams.image} />
+                    <Image src={teams.image} alt="image"/>
                     <div className='overlay'>
                       <div className='socials'>
                         <ul>
