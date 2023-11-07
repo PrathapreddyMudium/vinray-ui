@@ -1,8 +1,8 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Pagination from 'react-bootstrap/Pagination';
+import Row from 'react-bootstrap/Row';
 
 const worksData = [
   {
@@ -71,8 +71,9 @@ const worksData = [
 ]
 
 let active = 2;
+let numberOfPages = Math.ceil(worksData.length/3);
 let items = [];
-for (let number = 1; number <= 5; number++) {
+for (let number = 1; number <= numberOfPages; number++) {
   items.push(
     <Pagination.Item key={number} active={number === active}>
       {number}

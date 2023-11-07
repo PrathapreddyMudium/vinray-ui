@@ -100,7 +100,7 @@ const teamsData = [
 const AppTeams = () => {
   const profilePicUrl = "http://localhost:8080/teams/getProfilePic";
   const [teamsData1, setTeamData1] = useState([]);
-  const [imageUrl, setImageUrl] = useState(null);
+  //const [imageUrl, setImageUrl] = useState(null);
   useEffect(() => {
     async function fetchDataFromAPI() {
       const response = await api.get("/teams");
@@ -128,7 +128,7 @@ const AppTeams = () => {
             //const url = `http://localhost:8080/teams/getProfilePic/${teams.id}`;
             const url = `${profilePicUrl}/${teams.id}`;
             //setImageUrl(url);
-            console.log(url);
+            //console.log(url);
             return (
               <Col sm={3} key={teams.id}>
                 <div className="image">
