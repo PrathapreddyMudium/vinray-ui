@@ -24,15 +24,13 @@ function AppContact() {
     e.preventDefault();
     const contact = await api.post("/contact", formData);
     setFormData({
-    name: "",
-    email: "",
-    contact: "",
-    message: "",
-    
-
-    })
+      name: "",
+      email: "",
+      contact: "",
+      message: "",
+    });
     console.log(contact);
-  }
+  };
   return (
     <section id="contact" className="block contact-block">
       <Container fluid>
@@ -94,10 +92,10 @@ function AppContact() {
       <div className="google-map">
         <iframe
           title="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.90509723633!2d78.24323233266864!3d17.412608641430992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1697183921672!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d487295.22581163223!2d78.07838586924265!3d17.412077907948387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1698673246449!5m2!1sen!2sin"
           allowfullscreen=""
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
       <Container fluid>

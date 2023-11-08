@@ -1,39 +1,29 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
-import AppHeader from './components/header';
-import AppHero from './components/hero';
-import AppAbout from './components/about';
-import AppServices from './components/services';
-import AppWorks from './components/works';
-import AppTeams from './components/teams';
-import AppTestimonials from './components/testimonials';
-import AppPricing from './components/careers';
-import AppBlog from './components/blog';
-import AppContact from './components/contact';
-import AppFooter from './components/footer';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home1 from "./components/Home";
+import Error from "./components/authentication/Error";
+import Home from "./components/authentication/Home";
+import SignIn from "./components/authentication/SignIn";
+import { UserAuthContextProvider } from "./components/context/UserAuthContext";
+//import "./css/style.css";
+import ProtectedRoute from "./components/authentication/ProtectedRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header id='header'>
-        <AppHeader />
-      </header>
-      <main>
-        <AppHero />
-        <AppAbout />
-        <AppServices />
-        <AppWorks />
-        <AppTeams />
-        <AppTestimonials />
-        <AppPricing />
-        <AppBlog />
-        <AppContact />
-      </main>
-      <footer id="footer">
-        <AppFooter />
-      </footer>
-    </div>
+    <BrowserRouter>
+    <UserAuthContextProvider>
+      <Routes>
+        <Route path="/" element={<Home1 />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={<Error />} />
+      {/* private routes */}
+      <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+      {/*<Route path="/login" element={<ProtectedRoute><Login/></ProtectedRoute>}>
+      </Route>*/}
+      </Routes>
+      </UserAuthContextProvider>
+    </BrowserRouter>
   );
 }
 
